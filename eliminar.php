@@ -1,22 +1,16 @@
 <?php
-    $localhost="localhost";
-    $user="root";
-    $pass="";
-    $bd="BD";
-
-    $conn=mysqli_connect($localhost, $user, $pass);
-    if (!$conn){
-        die("Conexión fallida: ".mysqli_connect_error());
-    }
-
-    $conn->select_db($bd);
-    $numero_documento = $_POST['numero_documento'];
-
-    $sql = "DELETE FROM directorio WHERE numero_documento='$numero_documento'";
-    if (mysqli_query($conn, $sql)){
-        echo "Registro eliminado";
+include "conn.php";
+    $id=$_GET["id"];
+    $sql="DELETE FROM recetas WHERE id_receta=$id";
+    if ($conn->query($sql) === TRUE) {
+        echo '<script language="javascript">';
+        echo 'alert("Registro eliminado exitosamente");';
+        echo 'window.location.href = "#";';
+        echo '</script>';
     } else {
-        echo "Error eliminando el registro: ".mysqli_error($conn);
+        echo '<script language="javascript">';
+        echo 'alert("Error al eliminar el registro: ' . $conn->error . '");';
+        echo 'window.location.href = "#";';  
+        echo '</script>';
     }
-    mysqli_close($conn);
 ?>
