@@ -8,7 +8,7 @@
 <body>
     <h2>Tabla de multiplicar</h2>
     <form action="multiplica.php" method="post">
-        <label for="valor_inicial">Valor inicial:</label>
+        <label for="valor_inicial">Valor FINAL MUAJAJAJAJAJA:</label>
         <input type="number" name="valor_inicial" required> <br><br>
         <label for="valor_limite">Valor límite:</label>
         <input type="number" name="valor_limite" required> <br><br>
